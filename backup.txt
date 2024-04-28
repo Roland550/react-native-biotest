@@ -1,0 +1,67 @@
+import { StatusBar } from "expo-status-bar";
+import { Stack } from "expo-router";
+import {NavigatorContainer} from '@react-navigation/native'
+import {
+  Text,
+  View,
+  SafeAreaView,
+  Button,
+  Alert,
+  TouchableHighlight,
+  Pressable,
+  TouchableWithoutFeedback,
+  Dimensions,
+  ScrollView,
+} from "react-native";
+
+import { COLORS, icons, images, SIZES } from "../constants";
+import {
+  Welcome,
+  Nearbyjobs,
+  Popularjobs,
+  ScreenHearderBtn,
+  Biometric,
+  FormHeader,
+  FormSelector,
+  LoginForm,
+  SignFom,
+} from "../components";
+
+import styles from "../components/home/welcome/welcome.style";
+
+const Home = () => {
+  const login = "Login";
+  const signup = "Login";
+  return (
+    <View style={{ flex: 1, paddingTop: 90 }}>
+      <View style={{ height: 100 }}>
+        <FormHeader />
+      </View>
+      <View style={{ flexDirection: "row", paddingHorizontal: 20 }}>
+        <FormSelector
+          style={styles.borderLeft}
+          backgroundColor={"rgba(27,27,51,1)"}
+          title={login}
+        />
+        <FormSelector
+          style={styles.borderRight}
+          backgroundColor={"rgba(27,27,51,0.4)"}
+          title={signup}
+        />
+      </View>
+      <View>
+        <ScrollView
+          horizontal
+          pagingEnabled
+          showsHorizontalScrollIndicator={true}
+        >
+         <LoginForm />
+         <SignFom />
+         
+        </ScrollView>
+      </View>
+    </View>
+  );
+};
+
+export default Home;
